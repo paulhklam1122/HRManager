@@ -1,24 +1,11 @@
-# README
+# HR Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Basic CRUD operation for keeping track of employees' status.
 
-Things you may want to cover:
+Build with React and Rails. (JSX)
 
-* Ruby version
+To run on your local machine:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone this repository
+2. bundle install
+3. rails s
