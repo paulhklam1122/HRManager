@@ -11,6 +11,7 @@ var Employees = React.createClass({
     }
   },
   handleInputChange(e) {
+    console.log(e.target.value)
     var newEmployee = this.state.employee
     newEmployee[e.target.name] = e.target.value
     this.setState({employee: newEmployee})
@@ -50,22 +51,24 @@ var Employees = React.createClass({
   },
 
   render() {
-    var that = this;
-    employees = this.state.employees.map( function(employee) {
+    // var that = this;
+    var employees = this.state.employees.map( function(employee) {
       return (
-        <Employee employee={employee} key={employee.id} onFireEmployee={that.handleFireEmployee} />
+        <Employee employee={employee} key={employee.id} onFireEmployee={this.handleFireEmployee} />
       );
-    });
+    }.bind(this));
     return (
       <div className="container">
         <h1>Employees</h1>
         <div id="employees">
+          <EmployeeForm />
           <table className="table table-bordered">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Manager</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>

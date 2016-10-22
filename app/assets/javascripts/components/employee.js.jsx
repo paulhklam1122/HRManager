@@ -6,28 +6,9 @@ var Employee = React.createClass({
       errors: {}
     }
   },
-
   setEditMode() {
     this.setState({editMode: true});
   },
-
-  // handleNameChange(e) {
-  //   var newEmployee = this.state.employee
-  //   newEmployee.name = e.target.value
-  //   this.setState({employee: newEmployee});
-  // },
-  //
-  // handleEmailChange(e) {
-  //   var newEmployee = this.state.employee
-  //   newEmployee.email = e.target.value
-  //   this.setState({employee: newEmployee});
-  // },
-  //
-  // handleManagerChange(e) {
-  //   var newEmployee = this.state.employee
-  //   newEmployee.manager = e.target.value
-  //   this.setState({employee: newEmployee});
-  // },
   handleInputChange(e) {
     var updateEmployee = this.state.employee
     updateEmployee[e.target.name] = e.target.value
@@ -39,35 +20,35 @@ var Employee = React.createClass({
     this.handleEmployeeUpdate();
   },
   handleEmployeeUpdate() {
-    var that = this;
+    // var that = this;
     $.ajax({
       method: 'PUT',
       data: {
-        employee: that.state.employee,
+        employee: this.state.employee,
       },
-      url: '/employees/' + that.state.employee.id + '.json',
+      url: '/employees/' + this.state.employee.id + '.json',
       success: function(res) {
-        that.setState({
+        this.setState({
           errors: {},
           employee: res,
           editMode: false
         });
-      },
+      }.bind(this),
       error: function(res) {
-        that.setState({errors: res.responseJSON.errors});
-      }
+        this.setState({errors: res.responseJSON.errors});
+      }.bind(this)
     });
   },
 
   handleEmployeeFire() {
-    var that = this;
+    // var that = this;
     $.ajax({
       method: 'DELETE',
-      url: '/employees/' + that.state.employee.id + '.json',
+      url: '/employees/' + this.state.employee.id + '.json',
       success: function(res) {
-        that.props.onFireEmployee(that.state.employee);
-      }
-    })
+        this.props.onFireEmployee(this.state.employee);
+      }.bind(this)
+    });
   },
 
   render() {
