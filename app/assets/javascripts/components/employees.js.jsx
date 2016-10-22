@@ -44,10 +44,10 @@ var Employees = React.createClass({
   },
 
   handleFireEmployee(employee) {
-    var employeeList = this.state.employees.filter(function(item) {
+    var updateEmployeeList = this.state.employees.filter(function(item) {
       return employee.id !== item.id;
     });
-    this.setState({employees: employeeList});
+    this.setState({employees: updateEmployeeList});
   },
 
   render() {
