@@ -61,7 +61,6 @@ var Employees = React.createClass({
       <div className="container">
         <h1>Employees</h1>
         <div id="employees">
-          <EmployeeForm />
           <table className="table table-bordered">
             <thead>
               <tr>
