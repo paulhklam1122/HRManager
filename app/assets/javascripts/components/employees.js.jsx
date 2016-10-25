@@ -11,7 +11,6 @@ var Employees = React.createClass({
     }
   },
   handleInputChange(e) {
-    console.log(e.target.value)
     var newEmployee = this.state.employee
     newEmployee[e.target.name] = e.target.value
     this.setState({employee: newEmployee})
